@@ -1,0 +1,34 @@
+{
+  "name": "proxy-server-initialization",
+  "version": "1.2.0",
+  "design": "state-aware, docker-cli, no-compose",
+  "components": [
+    "system-baseline",
+    "docker",
+    "acme.sh",
+    "3x-ui",
+    "node_exporter",
+    "textfile-collector",
+    "prometheus-metrics",
+    "host-health-check"
+  ],
+  "fixes": [
+    "module child-shell config propagation",
+    "self-contained module context loading",
+    "3x-ui CLI absolute path",
+    "avoid curl EPIPE false failures under pipefail",
+    "explicit node_textfile_scrape_error validation",
+    "continue-from-monitoring helper",
+    "fresh-machine first-run bootstrap prerequisites",
+    "no hardcoded user domain/email",
+    "generic instance and metric identity",
+    "generic diagnostics and prometheus output",
+    "state-aware rerun",
+    "curl EPIPE-safe monitoring validation"
+  ],
+  "release_type": "stable-rebuild",
+  "identity_defaults": "generic",
+  "compose_dependency": false,
+  "legacy_xui": false,
+  "cloudflare_warp": false
+}

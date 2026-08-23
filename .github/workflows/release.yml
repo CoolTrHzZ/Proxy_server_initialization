@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build archive
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          mkdir -p dist
+          zip -qr dist/proxy-server-initialization-${VERSION}.zip . \
+            -x '.git/*' \
+            -x '*.log' \
+            -x 'config.env' \
+            -x 'secrets.env'
+          sha256sum dist/*.zip > dist/SHA256SUMS
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.zip
+            dist/SHA256SUMS

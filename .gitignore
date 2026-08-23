@@ -1,0 +1,78 @@
+# ============================
+# Runtime secrets
+# ============================
+
+config.env
+secrets.env
+runtime.env
+
+*.secret
+*.token
+*.key
+*.pem
+*.crt
+
+# ============================
+# ACME
+# ============================
+
+.acme.sh/
+acme.sh/
+
+# ============================
+# Runtime output
+# ============================
+
+logs/
+*.log
+
+/root/
+*.pid
+
+# ============================
+# Bootstrap generated files
+# ============================
+
+vps-bootstrap-result.env
+vps-bootstrap-output/
+
+host_health.prom
+
+# ============================
+# Docker
+# ============================
+
+docker-compose.override.yml
+
+# ============================
+# OS
+# ============================
+
+.DS_Store
+Thumbs.db
+
+# ============================
+# Editors
+# ============================
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+
+# ============================
+# Temporary
+# ============================
+
+tmp/
+temp/
+.cache/
+
+# ============================
+# Backup
+# ============================
+
+*.bak
+*.backup
+backup/
